@@ -12,13 +12,27 @@ import com.egen.dao.AlertAccessor;
 import com.egen.dao.MetricsAccessor;
 import com.egen.models.Metric;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class OverWeightRuleTest.
+ */
 public class OverWeightRuleTest {
 	
+	/** The rule. */
 	OverWeightRule rule;
+	
+	/** The alert access. */
 	@Mock AlertAccessor alertAccess;
+	
+	/** The metric access. */
 	@Mock MetricsAccessor metricAccess;
+    
+    /** The base. */
     Metric base;
 	
+	/**
+	 * Sets the up test.
+	 */
 	@Before
 	public void setUpTest()
 	{
@@ -30,6 +44,10 @@ public class OverWeightRuleTest {
 		base.setTimeStamp(1);
 		base.setValue(100);
 	}
+	
+	/**
+	 * Test null vals.
+	 */
 	@Test
 	public void testNullVals()
 	{
@@ -38,6 +56,9 @@ public class OverWeightRuleTest {
 		Assert.assertFalse(rule.when());
 	}
 	
+	/**
+	 * Test over weight true.
+	 */
 	@Test
 	public void testOverWeightTrue()
 	{
@@ -50,6 +71,9 @@ public class OverWeightRuleTest {
 		
 	}
 	
+	/**
+	 * Test over weight false.
+	 */
 	@Test
 	public void testOverWeightFalse()
 	{

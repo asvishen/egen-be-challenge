@@ -9,11 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.egen.dao.AlertAccessor;
-import com.egen.dao.DatabaseAccessor;
 import com.egen.dao.MetricsAccessor;
 import com.egen.rules.OverWeightRule;
 import com.egen.rules.UnderWeightRule;
 
+/**
+ * The Class MainApp which launches the Application
+ */
 @SpringBootApplication
 public class MainApp {
 
@@ -29,20 +31,33 @@ public class MainApp {
 
 	}
 	
+	/**
+	 * Fires all the rules registered.
+	 */
 	public static void runRules()
 	{
 		rulesEngine.fireRules();
 	}
 
+	/**
+	 * Alert accessor bean autowired into Controllers
+	 *
+	 * @return the alert accessor
+	 */
 	@Bean
 	public AlertAccessor alertAccessor()
 	{
-		return new AlertAccessor(DatabaseAccessor.getInstance().getDatastore());
+		return new AlertAccessor();
 	}
 	
+	/**
+	 * Metrics accessor bean.
+	 *
+	 * @return the metrics accessor
+	 */
 	@Bean
 	public MetricsAccessor metricsAccessor()
 	{
-		return new MetricsAccessor(DatabaseAccessor.getInstance().getDatastore());
+		return new MetricsAccessor();
 	}
 }

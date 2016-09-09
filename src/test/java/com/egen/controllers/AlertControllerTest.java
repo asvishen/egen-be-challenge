@@ -19,7 +19,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.egen.models.Alert;
 import com.egen.rules.OverWeightRule;
 
-
 public class AlertControllerTest {
 
 
@@ -28,16 +27,14 @@ public class AlertControllerTest {
     
     @Mock 
     AlertController controller = new AlertController();
-    
-    
+
     @Before
     public void setup()
     {
 
 		MockitoAnnotations.initMocks(this);
 		mvc = MockMvcBuilders.standaloneSetup(controller)
-				.build();
-    	
+				.build();	
     }
     
     @Test

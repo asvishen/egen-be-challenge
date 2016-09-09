@@ -11,12 +11,27 @@ import com.egen.dao.AlertAccessor;
 import com.egen.dao.MetricsAccessor;
 import com.egen.models.Metric;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UnderWeightRuleTest.
+ */
 public class UnderWeightRuleTest {
+	
+	/** The rule. */
 	UnderWeightRule rule;
+	
+	/** The alert access. */
 	@Mock AlertAccessor alertAccess;
+	
+	/** The metric access. */
 	@Mock MetricsAccessor metricAccess;
+    
+    /** The base. */
     Metric base;
 	
+	/**
+	 * Sets the up test.
+	 */
 	@Before
 	public void setUpTest()
 	{
@@ -28,6 +43,10 @@ public class UnderWeightRuleTest {
 		base.setTimeStamp(1);
 		base.setValue(100);
 	}
+	
+	/**
+	 * Test null vals.
+	 */
 	@Test
 	public void testNullVals()
 	{
@@ -36,6 +55,9 @@ public class UnderWeightRuleTest {
 		Assert.assertFalse(rule.when());
 	}
 	
+	/**
+	 * Test under weight true.
+	 */
 	@Test
 	public void testUnderWeightTrue()
 	{
@@ -48,6 +70,9 @@ public class UnderWeightRuleTest {
 		
 	}
 	
+	/**
+	 * Test under weight false.
+	 */
 	@Test
 	public void testUnderWeightFalse()
 	{
