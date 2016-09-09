@@ -4,8 +4,8 @@ import org.easyrules.annotation.Action;
 import org.easyrules.annotation.Condition;
 import org.easyrules.annotation.Rule;
 
-import com.egen.controllers.MainApp;
 import com.egen.dao.AlertAccessor;
+import com.egen.dao.DatabaseAccessor;
 import com.egen.dao.MetricsAccessor;
 import com.egen.models.Alert;
 import com.egen.models.Metric;
@@ -20,8 +20,8 @@ public class OverWeightRule {
 	
 	public OverWeightRule()
 	{
-		alertAccessor = new AlertAccessor(MainApp.getDatastore());
-		metricsAccessor = new MetricsAccessor(MainApp.getDatastore());
+		alertAccessor = new AlertAccessor(DatabaseAccessor.getInstance().getDatastore());
+		metricsAccessor = new MetricsAccessor(DatabaseAccessor.getInstance().getDatastore());
 	}
 
 	@Condition

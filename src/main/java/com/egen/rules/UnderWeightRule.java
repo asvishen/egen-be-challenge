@@ -4,8 +4,8 @@ import org.easyrules.annotation.Action;
 import org.easyrules.annotation.Condition;
 import org.easyrules.annotation.Rule;
 
-import com.egen.controllers.MainApp;
 import com.egen.dao.AlertAccessor;
+import com.egen.dao.DatabaseAccessor;
 import com.egen.dao.MetricsAccessor;
 import com.egen.models.Alert;
 import com.egen.models.Metric;
@@ -14,15 +14,15 @@ import com.egen.models.Metric;
 @Rule (name = "underweightrule" )
 public class UnderWeightRule {
 	
-	private static String TYPE = "Under Weight";
+	private static final String TYPE = "Under Weight";
 	private AlertAccessor alertAccessor;
 	private MetricsAccessor metricsAccessor;
 	private Metric currentMetric;
 	
 	public UnderWeightRule() 
 	{
-		alertAccessor = new AlertAccessor(MainApp.getDatastore());
-		metricsAccessor = new MetricsAccessor(MainApp.getDatastore());
+		alertAccessor = new AlertAccessor(DatabaseAccessor.getInstance().getDatastore());
+		metricsAccessor = new MetricsAccessor(DatabaseAccessor.getInstance().getDatastore());
 	}
 
 	@Condition
